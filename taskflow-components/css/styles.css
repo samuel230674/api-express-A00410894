@@ -1,0 +1,259 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --primary: #5454e9;
+  --success: #4cb978;
+  --danger: #dc2626;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* El diseño mantiene la aplicación legible en pantallas pequeñas y grandes. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2.5rem 1rem;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+#root {
+  width: 100%;
+  max-width: 560px;
+  margin: auto;
+}
+
+.app-container {
+  padding: 2.2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgb(0 0 0 / 8%);
+}
+
+.app-header h1 {
+  margin: 0 0 0.3rem;
+  font-size: 1.55rem;
+}
+
+.app-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.task-form {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.task-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.task-form input:focus {
+  border-color: var(--primary);
+  outline: 2px solid rgb(84 84 233 / 18%);
+}
+
+.btn-add,
+.btn-refresh {
+  padding: 0.7rem 1.2rem;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-add {
+  background: var(--success);
+  white-space: nowrap;
+}
+
+.btn-add:hover:not(:disabled) {
+  background: #3ea668;
+}
+
+.btn-refresh {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: var(--primary);
+}
+
+.btn-refresh:hover:not(:disabled) {
+  background: #3e3ec8;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 0;
+  color: #4b5563;
+  font-size: 0.88rem;
+}
+
+/* El indicador visual acompaña el estado de espera de las peticiones. */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem;
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.btn-retry {
+  flex-shrink: 0;
+  padding: 0.3rem 0.7rem;
+  color: #fff;
+  background: var(--danger);
+  border: 0;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.75rem 0.9rem;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.task-title {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.task-item.completed .task-title {
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 0.2rem 0.45rem;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-completed {
+  color: #065f46;
+  background: #d1fae5;
+}
+
+.badge-pending {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.btn-delete {
+  padding: 0.25rem 0.55rem;
+  color: var(--danger);
+  background: transparent;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: #fee2e2;
+}
+
+.empty-message {
+  padding: 1.5rem 0;
+  color: #9ca3af;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  .app-container {
+    padding: 1.4rem;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-item {
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}

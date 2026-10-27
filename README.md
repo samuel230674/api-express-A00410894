@@ -19,6 +19,14 @@ La guía práctica oficial del taller formativo para la construcción del fronte
 3. Dominar el flujo unidireccional de datos mediante **props** descendentes y **callbacks** de eventos ascendentes.
 4. Consumir las operaciones `GET`, `POST` y `DELETE` de esta API usando **Promesas** con `fetch` y `async / await` en una capa de servicio independiente (`taskService.js`).
 
+### 💻 Implementación del Frontend
+
+Este repositorio también incluye una solución de referencia del cliente en [`taskflow-components/`](./taskflow-components/), organizada en componentes Vanilla JS y una capa de servicio independiente.
+
+1. Inicia la API desde la raíz con `npm install` y `npm start`.
+2. En otra terminal, entra a `taskflow-components/` y ejecuta `npx live-server --port=3000`.
+3. Abre `http://localhost:3000`.
+
 ---
 
 ## 🚀 Puesta en Marcha en 2 Pasos
